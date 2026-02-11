@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { Mail, Phone, Send } from "lucide-react";
-import { useTheme } from "../hooks/useTheme"; // Theme hook import kiya
+import { useTheme } from "../hooks/useTheme";
 
 export default function ContactForm() {
   const [isVisible, setIsVisible] = useState(false);
-  const { mode } = useTheme(); // Theme mode access kiya
+  const { mode } = useTheme();
   const isDark = mode === "dark";
 
   useEffect(() => {
@@ -136,11 +136,11 @@ export default function ContactForm() {
               >
                 <div className="flex items-center gap-2 hover:text-emerald-500 transition-colors">
                   <Phone size={16} className="text-emerald-500" />
-                  <span>021-34932744</span>
+                  <span>03344840588</span>
                 </div>
                 <div className="flex items-center gap-2 hover:text-emerald-500 transition-colors">
                   <Mail size={16} className="text-emerald-500" />
-                  <span>info@bhavnagar.com</span>
+                  <span>info@bhavnagarmemon.com</span>
                 </div>
               </div>
             </div>
