@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Mail, Phone, Send } from "lucide-react";
 import { useTheme } from "../hooks/useTheme"; // Theme hook import kiya
 
-export default function Contact() {
+export default function ContactForm() {
   const [isVisible, setIsVisible] = useState(false);
   const { mode } = useTheme(); // Theme mode access kiya
   const isDark = mode === "dark";

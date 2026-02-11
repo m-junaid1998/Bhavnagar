@@ -8,7 +8,7 @@ import NewsSection from "./components/NewsSection";
 import PatronsSection from "./components/PatronsSection";
 import Footer from "./components/Footer";
 import Donate from "./components/Donate";
-import Contact from "./components/Contact";
+import ContactForm from "./components/ContactForm";
 
 function App() {
   return (
@@ -22,7 +22,7 @@ function App() {
       <AboutSection />
       <NewsSection />
       <PatronsSection />
-      <Contact />
+      <ContactForm />
       <Footer />
     </div>
   );
