@@ -127,22 +127,24 @@ function Donate() {
                   Bhavnagar Association
                 </p>
               </div>
+
               <div className={innerBoxStyle}>
                 <p className="text-[10px] uppercase font-black text-emerald-600 dark:text-emerald-400 tracking-wider mb-0.5">
                   Account Number
                 </p>
                 <p
-                  className={`text-lg font-mono font-bold ${isDark ? "text-emerald-500" : "text-emerald-700"}`}
+                  className={`font-bold ${isDark ? "text-slate-200" : "text-slate-700"}`}
                 >
                   1078-0081-000136-01-5
                 </p>
               </div>
+
               <div className={innerBoxStyle}>
                 <p className="text-[10px] uppercase font-black text-emerald-600 dark:text-emerald-400 tracking-wider mb-0.5">
                   IBAN Number
                 </p>
                 <p
-                  className={`text-xs font-mono font-bold ${isDark ? "text-slate-200" : "text-slate-700"}`}
+                  className={`font-bold ${isDark ? "text-slate-200" : "text-slate-700"}`}
                 >
                   PK56BAHL1078008100013601
                 </p>
@@ -179,12 +181,13 @@ function Donate() {
                   Bhavnagar Association
                 </p>
               </div>
+
               <div className={innerBoxStyle}>
                 <p className="text-[10px] uppercase font-black text-emerald-600 dark:text-emerald-400 tracking-wider mb-0.5">
                   Account Number
                 </p>
                 <p
-                  className={`text-lg font-mono font-bold ${isDark ? "text-emerald-500" : "text-emerald-700"}`}
+                  className={`font-bold ${isDark ? "text-slate-200" : "text-slate-700"}`}
                 >
                   0100004265
                 </p>
@@ -194,7 +197,7 @@ function Donate() {
                   IBAN Number
                 </p>
                 <p
-                  className={`text-xs font-mono font-bold ${isDark ? "text-slate-200" : "text-slate-700"}`}
+                  className={`font-bold ${isDark ? "text-slate-200" : "text-slate-700"}`}
                 >
                   PK80MEZN0001220100004265
                 </p>
