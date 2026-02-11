@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Mail, Phone, Send } from "lucide-react";
 import { useTheme } from "../hooks/useTheme"; // Theme hook import kiya
 

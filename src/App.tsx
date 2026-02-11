@@ -7,8 +7,8 @@ import AboutSection from "./components/AboutSection";
 import NewsSection from "./components/NewsSection";
 import PatronsSection from "./components/PatronsSection";
 import Footer from "./components/Footer";
-import Contact from "./components/contact";
 import Donate from "./components/Donate";
+import Contact from "./components/Contact";
 
 function App() {
   return (

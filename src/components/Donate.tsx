@@ -1,4 +1,3 @@
-import React from "react";
 import { Heart, Quote, Landmark, Globe } from "lucide-react";
 import { useTheme } from "../hooks/useTheme";
 
@@ -35,55 +34,6 @@ function Donate() {
           </h2>
         </div>
 
-        {/* <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch mb-16">
-       
-          <div className={`${cardStyle} ${isDark ? darkCard : lightCard}`}>
-            <div className="flex items-center gap-3 mb-6">
-              <div className="p-3 bg-emerald-500 rounded-xl">
-                <Heart className="text-white w-6 h-6" />
-              </div>
-              <h2
-                className={`text-3xl font-bold font-['Plus_Jakarta_Sans'] ${isDark ? "text-slate-100" : "text-slate-900"}`}
-              >
-                DONATION
-              </h2>
-            </div>
-            <p
-              className={`text-lg leading-relaxed ${isDark ? "text-slate-300" : "text-slate-600"}`}
-            >
-              AL-HAMDOLLILAH! to facilitate our Donors, we have launched ONLINE
-              DONATION PORTAL through which you can send us your donation from
-              any part of the World. Please note that Dhoraji Association is
-              fully responsible for spending your donations in the right way.
-              Click on “DONATE NOW” to have different channels through which you
-              can send donations to Dhoraji Association. You can also contact us
-              for further information.
-            </p>
-          </div>
-
-         
-          <div
-            className={`${cardStyle} ${isDark ? darkCard : "bg-emerald-600 border-emerald-500 shadow-lg"}`}
-          >
-            <div className="flex items-center gap-3 mb-4">
-              <div
-                className={`p-3 rounded-xl ${isDark ? "bg-emerald-500" : "bg-white/20"}`}
-              >
-                <Quote className="text-white w-6 h-6" />
-              </div>
-              <h2 className="text-2xl font-bold text-white uppercase tracking-wider">
-                Hadith
-              </h2>
-            </div>
-            <p className="text-xl italic text-white leading-relaxed mb-4">
-              "Whoever spends a sum in the cause of Allah, it is recorded for
-              him seven-hundred fold."
-            </p>
-            <span className="text-emerald-100 text-sm font-bold block border-l-2 border-emerald-400 pl-3">
-              - Jami` at-Tirmidhi 1625
-            </span>
-          </div>
-        </div> */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch mb-12">
           {/* Donation Intro */}
           <div
