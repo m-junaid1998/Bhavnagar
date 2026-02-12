@@ -401,7 +401,7 @@ const CensusForm: React.FC = () => {
         <div className="bg-emerald-500 p-10 text-white relative">
           <div className="relative z-10">
             <h1 className="text-4xl font-black uppercase tracking-tight">Census Form</h1>
-            <p className="text-emerald-100 font-bold mt-1 opacity-80 uppercase text-[10px] tracking-[0.2em]">Bhavnagar Association Karachi • 2026</p>
+            <p className="text-emerald-100 font-bold mt-1 opacity-80 uppercase text-[10px] tracking-[0.2em]">Bhavnagar Association Karachi • {new Date().getFullYear()}</p>
           </div>
           <Users className="absolute right-10 top-1/2 -translate-y-1/2 opacity-10 w-32 h-32" />
         </div>
@@ -434,7 +434,7 @@ const CensusForm: React.FC = () => {
 
             <InputField label="Membership Number" required isDark={isDark} error={errors.membershipNo} value={formData.membershipNo} onChange={(e) => setFormData({...formData, membershipNo: e.target.value})} />
             <InputField label="Date of Birth" type="date" required isDark={isDark} error={errors.dob} value={formData.dob} onChange={(e) => setFormData({...formData, dob: e.target.value})} />
-            <InputField label="Surname" options={["Bhavnagri", "Dhoraji", "Other"]} required isDark={isDark} error={errors.surname} value={formData.surname} onChange={(e) => setFormData({...formData, surname: e.target.value})} />
+            <InputField label="Surname" options={["Noorani", "Pirwani", "Bambotia" , "Other"]} required isDark={isDark} error={errors.surname} value={formData.surname} onChange={(e) => setFormData({...formData, surname: e.target.value})} />
             <InputField label="Mobile Number" required isDark={isDark} error={errors.contact} value={formData.contact} onChange={(e) => setFormData({...formData, contact: e.target.value})} />
             <InputField label="Email" type="email" isDark={isDark} value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} />
             <InputField label="Gender" options={["Male", "Female", "Other"]} required isDark={isDark} error={errors.gender} value={formData.gender} onChange={(e) => setFormData({...formData, gender: e.target.value})} />

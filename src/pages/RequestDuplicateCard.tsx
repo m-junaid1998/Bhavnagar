@@ -345,7 +345,7 @@ const RequestDuplicateCard: React.FC = () => {
             <InputField label="Gender" options={["Male", "Female", "Other"]} required isDark={isDark} error={errors.gender} value={formData.gender} onChange={(e) => setFormData({...formData, gender: e.target.value})} />
             <InputField label="Father's Name" placeholder="Enter name" required isDark={isDark} error={errors.fatherName} value={formData.fatherName} onChange={(e) => setFormData({...formData, fatherName: e.target.value})} />
             <InputField label="Grand Father's Name" placeholder="Enter name" isDark={isDark} value={formData.grandFatherName} onChange={(e) => setFormData({...formData, grandFatherName: e.target.value})} />
-            <InputField label="Surname" options={["Bhavnagri", "Dhoraji", "Other"]} required isDark={isDark} error={errors.surname} value={formData.surname} onChange={(e) => setFormData({...formData, surname: e.target.value})} />
+            <InputField label="Surname" options={["Noorani", "Pirwani", "Bambotia" , "Other"]}  required isDark={isDark} error={errors.surname} value={formData.surname} onChange={(e) => setFormData({...formData, surname: e.target.value})} />
             <InputField label="Contact Number" placeholder="03XX-XXXXXXX" required isDark={isDark} error={errors.contact} value={formData.contact} onChange={(e) => setFormData({...formData, contact: e.target.value})} />
             <InputField label="Email Address" type="email" placeholder="Enter email" isDark={isDark} value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} />
             <InputField label="Marital Status" options={["Single", "Married", "Widowed", "Divorced"]} required isDark={isDark} error={errors.maritalStatus} value={formData.maritalStatus} onChange={(e) => setFormData({...formData, maritalStatus: e.target.value})} />
@@ -405,7 +405,7 @@ const RequestDuplicateCard: React.FC = () => {
                   onChange={(e) => setFormData({...formData, declared: e.target.checked})}
                 />
                 <span className={`text-[11px] font-medium leading-none italic ${isDark ? "text-slate-400" : "text-slate-500"}`}>
-                  I declare that I belong to <span className="text-emerald-500 font-bold">Dhoraji Memon Community</span> & solemnly affirm that information stated above is correct.
+                  I declare that I belong to <span className="text-emerald-500 font-bold">Bhavnagar Memon Community</span> & solemnly affirm that information stated above is correct.
                 </span>
               </label>
               {errors.declared && <p className="text-[10px] text-red-500 font-bold mt-2">{errors.declared}</p>}

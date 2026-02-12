@@ -177,7 +177,9 @@ export default function Footer() {
                 <Instagram className="w-6 h-6" />
               </a>
               <a
-                href="#"
+                href="https://x.com/bhavnagarjamat"
+                 target="_blank"
+                rel="noreferrer"
                 className="text-gray-400 hover:text-emerald-400 transition-colors"
               >
                 <Twitter className="w-6 h-6" />

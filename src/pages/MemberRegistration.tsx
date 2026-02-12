@@ -459,7 +459,7 @@ import {
   XCircle,
   Camera,
   Info,
-  Users,
+
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "../hooks/useTheme";
@@ -495,11 +495,10 @@ const MemberRegistration: React.FC = () => {
     cnicBack: null,
   });
 
-  // Comprehensive Validation Logic
+
   const validate = () => {
     let newErrors: any = {};
     
-    // Required Text/Select Fields
     if (!formData.fullName.trim()) newErrors.fullName = "Full name is required";
     if (!formData.cnic.trim()) newErrors.cnic = "CNIC is required";
     if (!formData.dob) newErrors.dob = "Date of birth is required";
@@ -530,7 +529,7 @@ const MemberRegistration: React.FC = () => {
       return;
     }
     setFormData({ ...formData, [field]: file });
-    // Clear error when file is uploaded
+
     setErrors((prev) => ({ ...prev, [field]: "" }));
   };
 
@@ -542,7 +541,7 @@ const MemberRegistration: React.FC = () => {
       setFileError(null);
     } else {
       setFileError("Please fill all required fields correctly.");
-      window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll to top to show error alert
+      window.scrollTo({ top: 0, behavior: 'smooth' }); 
     }
   };
 
@@ -590,9 +589,16 @@ const MemberRegistration: React.FC = () => {
           <div className="relative z-10">
             <h1 className="text-4xl font-black uppercase tracking-tight">Member Registration</h1>
             <p className="text-emerald-100 font-bold mt-1 opacity-80 uppercase text-[10px] tracking-[0.2em]">
-              Bhavnagar Association Karachi • Membership 2026
+              Bhavnagar Association Karachi • Membership {new Date().getFullYear()}
             </p>
           </div>
+           <div className="mt-6 flex items-center gap-2 bg-white/10 w-fit px-4 py-2 rounded-full backdrop-blur-md">
+               <AlertCircle size={14} />
+              <p className="text-[11px] font-medium italic">
+                Fields with <span className="text-red-400 font-bold">*</span>{" "}
+                are required
+              </p>
+            </div>
           <UserPlus className="absolute right-10 top-1/2 -translate-y-1/2 opacity-10 w-32 h-32" />
         </div>
 
@@ -629,7 +635,7 @@ const MemberRegistration: React.FC = () => {
             />
           </div>
 
-          {/* Section 2: Personal Info */}
+    
           <SectionHeader icon={Info} title="Basic Information" />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-6">
             <InputField label="Full Name" placeholder="Enter name" required isDark={isDark} error={errors.fullName} value={formData.fullName} onChange={(e) => setFormData({ ...formData, fullName: e.target.value })} />
@@ -638,14 +644,14 @@ const MemberRegistration: React.FC = () => {
             <InputField label="Gender" options={["Male", "Female", "Other"]} required isDark={isDark} error={errors.gender} value={formData.gender} onChange={(e) => setFormData({ ...formData, gender: e.target.value })} />
             <InputField label="Father's/Husband's Name" placeholder="Enter name" required isDark={isDark} error={errors.fatherName} value={formData.fatherName} onChange={(e) => setFormData({ ...formData, fatherName: e.target.value })} />
             <InputField label="Grand Father Name" placeholder="Enter name" isDark={isDark} value={formData.grandFatherName} onChange={(e) => setFormData({ ...formData, grandFatherName: e.target.value })} />
-            <InputField label="Surname" options={["Bhavnagri", "Dhoraji", "Other"]} required isDark={isDark} error={errors.surname} value={formData.surname} onChange={(e) => setFormData({ ...formData, surname: e.target.value })} />
+            <InputField label="Surname" options={["Noorani", "Pirwani", "Bambotia" , "Other"]}  required isDark={isDark} error={errors.surname} value={formData.surname} onChange={(e) => setFormData({ ...formData, surname: e.target.value })} />
             <InputField label="Mobile Number" placeholder="03XX-XXXXXXX" required isDark={isDark} error={errors.contact} value={formData.contact} onChange={(e) => setFormData({ ...formData, contact: e.target.value })} />
             <InputField label="Email Address" type="email" placeholder="Enter email" isDark={isDark} value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
             <InputField label="Marital Status" options={["Single", "Married", "Widowed", "Divorced"]} required isDark={isDark} error={errors.maritalStatus} value={formData.maritalStatus} onChange={(e) => setFormData({ ...formData, maritalStatus: e.target.value })} />
             <InputField label="Census Number" placeholder="Enter number" isDark={isDark} value={formData.censusNumber} onChange={(e) => setFormData({ ...formData, censusNumber: e.target.value })} />
           </div>
 
-          {/* Section 3: Address */}
+   
           <SectionHeader icon={MapPin} title="Residential Details" />
           <div className="space-y-6">
             <div className="flex flex-col gap-2">
@@ -669,7 +675,7 @@ const MemberRegistration: React.FC = () => {
           </div>
 
           {/* Section 4: Reference */}
-          <SectionHeader icon={Users} title="Member Reference" />
+         <SectionHeader icon={User} title="Member Reference" />
           <div className={`p-8 rounded-[40px] border ${errors.reference || errors.declared ? "border-red-500" : isDark ? "bg-slate-800/40 border-slate-700" : "bg-slate-50 border-slate-100"}`}>
             <div className="flex flex-wrap gap-8 items-center">
               <span className="text-xs font-black uppercase text-slate-500 tracking-wider">
@@ -688,7 +694,7 @@ const MemberRegistration: React.FC = () => {
               <label className="flex items-center gap-4 cursor-pointer group">
                 <input type="checkbox" checked={formData.declared} onChange={(e) => setFormData({ ...formData, declared: e.target.checked })} className="w-5 h-5 accent-emerald-500 rounded-lg flex-shrink-0" />
                 <span className={`text-[11px] font-medium italic ${isDark ? "text-slate-400" : "text-slate-500"}`}>
-                  I declare that I belong to <span className="text-emerald-500 font-bold">Dhoraji Memon Community</span> & solemnly affirm that information stated above is correct.
+                  I declare that I belong to <span className="text-emerald-500 font-bold">Bhavnagar Memon Community</span> & solemnly affirm that information stated above is correct.
                 </span>
               </label>
               {errors.declared && <p className="text-[10px] text-red-500 font-bold mt-2">{errors.declared}</p>}
