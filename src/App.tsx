@@ -1,20 +1,24 @@
-import Navbar from "./components/Navbar";
-import Carousel from "./components/Carousels";
-import HeroSection from "./components/HeroSection";
-import ServicesGrid from "./components/ServicesGrid";
-import CommitteesSection from "./components/CommitteesSection";
-import AboutSection from "./components/AboutSection";
-import NewsSection from "./components/NewsSection";
-import PatronsSection from "./components/PatronsSection";
-import Footer from "./components/Footer";
-import Donate from "./components/Donate";
-import ContactForm from "./components/ContactForm";
+import Navbar from "./pages/Navbar";
+import Carousel from "./pages/Carousels";
+import HeroSection from "./pages/HeroSection";
+import ServicesGrid from "./pages/ServicesGrid";
+import CommitteesSection from "./pages/CommitteesSection";
+import AboutSection from "./pages/AboutSection";
+import NewsSection from "./pages/NewsSection";
+import PatronsSection from "./pages/PatronsSection";
+import Footer from "./pages/Footer";
+import Donate from "./pages/Donate";
+import ContactForm from "./pages/ContactForm";
+import Forms from "./pages/Forms";
+import CensusForm from "./pages/CensusForm";
 
 function App() {
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
       <Carousel />
+      <CensusForm/>
+      <Forms/>
       <HeroSection />
       <Donate />
       <ServicesGrid />
