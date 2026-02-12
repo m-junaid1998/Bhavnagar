@@ -1,6 +1,6 @@
 import { useTheme } from "../hooks/useTheme";
 
-export default function PatronsSection() {
+export default function AboutUs() {
   const { mode } = useTheme();
   const isDark = mode === "dark";
 
@@ -18,7 +18,7 @@ export default function PatronsSection() {
 
   return (
     <section
-      id="about"
+    
       className={`py-20 px-4 theme-transition ${isDark ? "bg-slate-800" : "bg-white"}`}
     >
       <div className="max-w-7xl mx-auto">

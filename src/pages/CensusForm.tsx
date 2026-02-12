@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import {
-  Upload, FileText, User, MapPin, Briefcase, Save, Plus, Users, Globe, AlertCircle, Trash2, XCircle,
+  User, MapPin, Briefcase, Save, Plus, Users, Globe, AlertCircle, Trash2, XCircle, Upload as IconUpload
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "../hooks/useTheme";
-import InputField from "../helperfunctions/helperfunction";
+import { InputField, FileUploadField } from "../helperfunctions/helperfunction";
 
 interface UploadedFiles {
   [key: string]: File | null;
 }
+
 interface FamilyMember {
   id: number;
   name: string;
@@ -24,7 +25,7 @@ const CensusForm: React.FC = () => {
   const [fileError, setFileError] = useState<string | null>(null);
   const [familyMembers, setFamilyMembers] = useState<FamilyMember[]>([]);
   const [uploadedFiles, setUploadedFiles] = useState<UploadedFiles>({
-    wForm: null,
+    bForm: null,
     cnicFront: null,
     cnicBack: null,
   });
@@ -93,6 +94,7 @@ const CensusForm: React.FC = () => {
         animate={{ opacity: 1, y: 0 }}
         className={`max-w-7xl mx-auto rounded-[40px] border shadow-2xl overflow-hidden ${isDark ? "bg-slate-900 border-slate-800" : "bg-white border-white"}`}
       >
+
         <div className="bg-emerald-500 p-10 text-white relative">
           <div className="relative z-10">
             <h1 className="text-4xl font-black uppercase tracking-tight">Head of Family</h1>
@@ -108,6 +110,8 @@ const CensusForm: React.FC = () => {
         </div>
 
         <form className="p-8 lg:p-16" onSubmit={(e) => e.preventDefault()}>
+          
+  
           <SectionHeader icon={Globe} title="Community" />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <InputField label="Census Form Number" placeholder="For Office Use Only" required isDark={isDark} />
@@ -130,6 +134,7 @@ const CensusForm: React.FC = () => {
                   type={isLifetime ? "text" : "date"}
                   value={isLifetime ? "Lifetime" : undefined}
                   disabled={isLifetime}
+                  readOnly={isLifetime}
                   className={`flex-1 px-4 py-3 rounded-xl border outline-none text-sm ${isDark ? "bg-slate-800 border-slate-700 text-white" : "bg-white border-slate-200"} ${isLifetime ? "opacity-50" : ""}`}
                 />
                 <label className="flex items-center gap-2 cursor-pointer">
@@ -149,6 +154,7 @@ const CensusForm: React.FC = () => {
             <InputField label="Disability" options={["None", "Physical", "Visual", "Hearing"]} isDark={isDark} />
           </div>
 
+
           <SectionHeader icon={MapPin} title="Residential Details" />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="md:col-span-2">
@@ -162,6 +168,7 @@ const CensusForm: React.FC = () => {
             <InputField label="Residential Type" options={["House", "Apartment", "Bungalow"]} required isDark={isDark} />
           </div>
 
+ 
           <SectionHeader icon={Briefcase} title="Professional Details" />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <InputField label="Academic Qualification" placeholder="Matric, Bachelors etc." isDark={isDark} />
@@ -196,43 +203,35 @@ const CensusForm: React.FC = () => {
             </button>
           </div>
 
-          <SectionHeader icon={Upload} title="Attachments" subtitle="All Attachments must be of type PNG, JPEG or JPG and under 500KB" />
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {["wForm", "cnicFront", "cnicBack"].map((key) => (
-              <div key={key} className="flex flex-col gap-3">
-                <label className="text-[10px] font-black uppercase text-slate-400 tracking-widest">
-                  {key === "wForm" ? "W-Form / MHC Form" : `CNIC ${key === "cnicFront" ? "Front" : "Back"}`} *
-                </label>
-                <div
-                  onDragOver={(e) => e.preventDefault()}
-                  onDrop={(e) => {
-                    e.preventDefault();
-                    if (e.dataTransfer.files?.[0]) validateAndUpload(e.dataTransfer.files[0], key);
-                  }}
-                  className={`relative h-44 border-2 border-dashed rounded-[32px] flex flex-col items-center justify-center transition-all ${uploadedFiles[key] ? "border-emerald-500 bg-emerald-500/5" : isDark ? "bg-slate-800/40 border-slate-700" : "bg-slate-50 border-slate-200"}`}
-                >
-                  {uploadedFiles[key] ? (
-                    <div className="text-center p-4">
-                      <div className="bg-emerald-500/10 p-3 rounded-full w-fit mx-auto mb-2"><FileText className="text-emerald-500" size={24} /></div>
-                      <p className="text-[10px] font-bold text-slate-600 dark:text-slate-300 truncate max-w-[180px] mb-1">{uploadedFiles[key]?.name}</p>
-                      <p className="text-[9px] text-emerald-600 font-bold uppercase tracking-tighter mb-2">Successfully Uploaded</p>
-                      <button type="button" onClick={() => setUploadedFiles((p) => ({ ...p, [key]: null }))} className="text-[10px] text-red-500 font-black uppercase hover:underline">Remove File</button>
-                    </div>
-                  ) : (
-                    <>
-                      <Upload className="text-slate-300 mb-3" size={28} />
-                      <p className="text-[10px] text-slate-400 font-bold uppercase mb-4">Drag & Drop or click to upload</p>
-                      <label className="cursor-pointer bg-emerald-500 text-white px-5 py-2 rounded-xl text-[10px] font-black uppercase hover:bg-emerald-600 transition-all">
-                        Select File
-                        <input type="file" className="hidden" accept=".png,.jpg,.jpeg" onChange={(e) => { if (e.target.files?.[0]) validateAndUpload(e.target.files[0], key); }} />
-                      </label>
-                    </>
-                  )}
-                </div>
-              </div>
-            ))}
+          <SectionHeader icon={IconUpload} title="Attachments" subtitle="PNG, JPEG or JPG under 500KB" />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <FileUploadField
+              label="B-Form / FRC Form"
+              file={uploadedFiles.bForm}
+              isDark={isDark}
+              required
+              onUpload={(file) => validateAndUpload(file, "bForm")}
+              onRemove={() => setUploadedFiles((p) => ({ ...p, bForm: null }))}
+            />
+            <FileUploadField
+              label="CNIC Front"
+              file={uploadedFiles.cnicFront}
+              isDark={isDark}
+              required
+              onUpload={(file) => validateAndUpload(file, "cnicFront")}
+              onRemove={() => setUploadedFiles((p) => ({ ...p, cnicFront: null }))}
+            />
+            <FileUploadField
+              label="CNIC Back"
+              file={uploadedFiles.cnicBack}
+              isDark={isDark}
+              required
+              onUpload={(file) => validateAndUpload(file, "cnicBack")}
+              onRemove={() => setUploadedFiles((p) => ({ ...p, cnicBack: null }))}
+            />
           </div>
 
+          {/* Footer Section */}
           <div className="mt-20 pt-10 border-t border-slate-100 dark:border-slate-800 flex flex-col sm:flex-row justify-between items-center gap-6">
             <p className="text-[11px] text-slate-400 font-bold uppercase italic">Please review everything before submitting!</p>
             <button type="submit" className="w-full sm:w-auto flex items-center justify-center gap-2 px-12 py-4 rounded-2xl bg-emerald-500 text-white font-black uppercase text-[11px] tracking-[0.2em] shadow-2xl hover:bg-emerald-600 transition-all active:scale-95">

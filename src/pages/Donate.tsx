@@ -19,8 +19,8 @@ function Donate() {
 
   return (
     <section
-      id="donate"
-      className={`py-16 theme-transition ${isDark ? "bg-slate-900" : "bg-white"}`}
+      
+      className={`py-16  theme-transition ${isDark ? "bg-slate-900" : "bg-white"}`}
     >
       <div className="container mx-auto px-6">
         {/* --- MAIN SECTION HEADING: DONATE --- */}
