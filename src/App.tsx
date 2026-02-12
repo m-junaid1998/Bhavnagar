@@ -1,11 +1,6 @@
 import AppRouting from "./router/AppRouting";
-
 function App() {
-  return (
-    <div className="min-h-screen bg-white">
-      <AppRouting />
-    </div>
-  );
+  return <AppRouting />;
 }
 
 export default App;

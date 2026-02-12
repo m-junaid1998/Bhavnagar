@@ -14,7 +14,7 @@ import CensusForm from "../pages/CensusForm";
 
 function AppRouting() {
   return (
-    <div className="app-wrapper">
+    <div className="min-h-screen bg-white">
       <Navbar />
       <div className="pt-10">
       <Routes>
