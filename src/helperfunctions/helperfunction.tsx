@@ -161,7 +161,7 @@ export interface FileUploadFieldProps {
   onRemove: () => void;
   isDark?: boolean;
   required?: boolean;
-  error?: string; // Error prop add kiya
+  error?: string; 
 }
 
 export const FileUploadField: React.FC<FileUploadFieldProps> = ({

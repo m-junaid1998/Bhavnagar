@@ -144,6 +144,7 @@ export default function Navbar() {
     { name: "Home", path: "/" },
     { name: "Donate", path: "/donate" },
     { name: "Contact", path: "/contact-form" },
+    { name: "Events", path: "/event" },
     { name: "About", path: "/aboutus" },
     { name: "Committees", path: "/committe" },
     { name: "Services", path: "/service" },
