@@ -11,26 +11,34 @@ import CommitteesSection from "../pages/CommitteesSection";
 import MemberRegistration from "../pages/MemberRegistration";
 import RequestDuplicateCard from "../pages/RequestDuplicateCard";
 import CensusForm from "../pages/CensusForm";
+import Events from "../pages/Events";
+
+const routes = [
+  { path: "/", element: <HomePage /> },
+  { path: "/donate", element: <Donate /> },
+  { path: "/contact-form", element: <ContactForm /> },
+  { path: "/aboutus", element: <AboutUs /> },
+  { path: "/events/:view", element: <Events /> }, 
+  { path: "/events", element: <Navigate to="/events/list" replace /> },
+  { path: "/service", element: <ServicesGrid /> },
+  { path: "/committe", element: <CommitteesSection /> },
+  { path: "/form", element: <Forms /> },
+  { path: "/census-form", element: <CensusForm /> },
+  { path: "/membership-registration", element: <MemberRegistration /> },
+  { path: "/duplicate-card", element: <RequestDuplicateCard /> },
+  { path: "*", element: <Navigate to="/" replace /> },
+];
 
 function AppRouting() {
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
       <div className="pt-10">
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/donate" element={<Donate />} />
-        <Route path="/contact-form" element={<ContactForm />} />
-        <Route path="/aboutus" element={<AboutUs />} />
-        <Route path="/service" element={<ServicesGrid />} />
-        <Route path="/committe" element={<CommitteesSection />} />
-        <Route path="/aboutus" element={<AboutUs />} />
-        <Route path="/form" element={<Forms />} />
-        <Route path="/census-form" element={<CensusForm />} />
-        <Route path="/membership-registration" element={<MemberRegistration />} />
-        <Route path="/duplicate-card" element={<RequestDuplicateCard />} />
-        <Route  path="*" element={<Navigate to="/" replace />} />
-      </Routes>
+        <Routes>
+          {routes.map(({ path, element }) => (
+            <Route key={path} path={path} element={element} />
+          ))}
+        </Routes>
       </div>
       <Footer />
     </div>
